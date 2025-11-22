@@ -18,10 +18,11 @@ export async function POST(req : NextRequest) {
         } catch (error) {
             return NextResponse.json({message:"Invalid form data" , error: error instanceof Error ? error.message : 'Unknown error'} , {status : 400})
         }
-        const file = await formData.get('image') as File | null;
+        const file = await formData.get('image') as File;
         if(!file){
             return NextResponse.json({message : 'Image file is required ' , error : 'No image file found in the form data '} , {status : 400})
         }
+
         const buffer = await Buffer.from(await file.arrayBuffer());
         const uploadResult = await new Promise((resolve , reject) => {
             cloudinary.uploader.upload_stream({resource_type : 'image' , folder : 'events'} , (error , result) => {
@@ -42,7 +43,7 @@ export async function POST(req : NextRequest) {
     }
 }
 
-export async function GET(){
+export async function GET() {
     try {
         connectDB()
         const events = await Event.find().sort({createdAt : -1});
@@ -51,3 +52,5 @@ export async function GET(){
         return NextResponse.json({message : 'Something went wrong' , error : error instanceof Error ? error.message : 'Unknown error'} , {status : 500})
     }
 }
+
+// this is a route that accepts a slug as input -> returns the event detauls 
