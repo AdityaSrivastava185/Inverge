@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
-import { createBooking } from '@/lib/actions/bookig.actions';
-import React, { useState } from 'react'
+import {useState} from "react";
+import { createBooking } from "@/lib/actions/bookig.actions";
 
-const BookEvent = ({eventId , slug} : {eventId : string , slug : string}) => {
 
+const BookEvent = ({ eventId, slug }: { eventId: string, slug: string;}) => {
     const [email, setEmail] = useState('');
     const [submitted, setSubmitted] = useState(false);
 
@@ -17,34 +17,30 @@ const BookEvent = ({eventId , slug} : {eventId : string , slug : string}) => {
             setSubmitted(true);
         } else {
             console.error('Booking creation failed')
-           
         }
     }
 
     return (
-        <div>
-            <div id="book-event">
-                {submitted ? (
-                    <p className="text-sm">Thank you for signing up!</p>
-                ) : (
-                    <form onSubmit={handleSubmit}>
-                        <div>
-                            <label htmlFor="email">Email Address</label>
-                            <input
-                                type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                id="email"
-                                placeholder="Enter your email address"
-                            />
-                        </div>
+        <div id="book-event">
+            {submitted ? (
+                <p className="text-sm">Thank you for signing up!</p>
+            ): (
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <label htmlFor="email">Email Address</label>
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            id="email"
+                            placeholder="Enter your email address"
+                        />
+                    </div>
 
-                        <button type="submit" className="button-submit">Submit</button>
-                    </form>
-                )}
-            </div>
+                    <button type="submit" className="button-submit">Submit</button>
+                </form>
+            )}
         </div>
     )
 }
-
 export default BookEvent
