@@ -44,7 +44,7 @@ const EventSchema = new Schema<IEvent>(
       type: String,
       required: [true, 'Overview is required'],
       trim: true,
-      maxlength: [500, 'Overview cannot exceed 500 characters'],
+      maxlength: [1500, 'Overview cannot exceed 500 characters'],
     },
     image: {
       type: String,

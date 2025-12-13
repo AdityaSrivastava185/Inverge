@@ -5,16 +5,16 @@ const Navbar = () => {
     return (
         <header>
             <nav>
-                <Link href='/' className="logo">
+                <Link href='/' className="flex items-center gap-2 font-bold text-xl">
 
                     <p>Inverge</p>
                 </Link>
 
-                <ul>
+                {/* <ul>
                     <Link href="/">Home</Link>
                     <Link href="/">Events</Link>
                     <Link href="/">Create Event</Link>
-                </ul>
+                </ul> */}
             </nav>
         </header>
     )

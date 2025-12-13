@@ -1,56 +1,64 @@
+import {NextRequest, NextResponse} from "next/server";
+import { v2 as cloudinary } from 'cloudinary';
+
 import connectDB from "@/lib/mongodb";
-import { NextRequest, NextResponse } from "next/server";
-import Event from "@/database/event.model";
-import {v2 as cloudinary} from "cloudinary"
+import Event from '@/database/event.model';
 
-
-
-export async function POST(req : NextRequest) {
+export async function POST(req: NextRequest) {
     try {
-        // console.log("Post route")
         await connectDB();
+
         const formData = await req.formData();
-        // console.log(formData.get("title"))
-        // console.log(formData)
-        let event ;
+
+        let event;
+
         try {
-            event = Object.fromEntries(formData)
-        } catch (error) {
-            return NextResponse.json({message:"Invalid form data" , error: error instanceof Error ? error.message : 'Unknown error'} , {status : 400})
-        }
-        const file = await formData.get('image') as File;
-        if(!file){
-            return NextResponse.json({message : 'Image file is required ' , error : 'No image file found in the form data '} , {status : 400})
+            event = Object.fromEntries(formData.entries());
+        } catch (e) {
+            return NextResponse.json({ message: 'Invalid JSON data format'}, { status: 400 })
         }
 
-        const buffer = await Buffer.from(await file.arrayBuffer());
-        const uploadResult = await new Promise((resolve , reject) => {
-            cloudinary.uploader.upload_stream({resource_type : 'image' , folder : 'events'} , (error , result) => {
-                if(error){
-                    reject(error);
-                }else{
-                    resolve(result);
-                }
+        const file = formData.get('image') as File;
+
+        if(!file) return NextResponse.json({ message: 'Image file is required'}, { status: 400 })
+
+        let tags = await JSON.parse(formData.get('tags') as string);
+        let agenda = await JSON.parse(formData.get('agenda') as string);
+
+        const arrayBuffer = await file.arrayBuffer();
+        const buffer = await Buffer.from(arrayBuffer);
+
+        const uploadResult = await new Promise((resolve, reject) => {
+            cloudinary.uploader.upload_stream({ resource_type: 'image', folder: 'DevEvent' }, (error, results) => {
+                if(error) return reject(error);
+
+                resolve(results);
             }).end(buffer);
         });
-        event.image = (uploadResult as {secure_url : string}).secure_url;
 
-        const createdEvent = await Event.create(event);
-        return NextResponse.json({message : 'Event created successfully' , event : createdEvent} , {status : 201})
-    } catch (error) {
-        console.log("something went wrong")
-        return NextResponse.json({message : 'Something went wrong' , error : error instanceof Error ? error.message : 'Unknown error'} , {status : 500})
+        event.image = (uploadResult as { secure_url: string }).secure_url;
+
+        const createdEvent = await Event.create({
+            ...event,
+            tags: tags,
+            agenda: agenda,
+        });
+
+        return NextResponse.json({ message: 'Event created successfully', event: createdEvent }, { status: 201 });
+    } catch (e) {
+        console.error(e);
+        return NextResponse.json({ message: 'Event Creation Failed', error: e instanceof Error ? e.message : 'Unknown'}, { status: 500 })
     }
 }
 
 export async function GET() {
     try {
-        connectDB()
-        const events = await Event.find().sort({createdAt : -1});
-        return NextResponse.json({message:"Events fetched successfully", events} , {status : 200})
-    } catch (error) {
-        return NextResponse.json({message : 'Something went wrong' , error : error instanceof Error ? error.message : 'Unknown error'} , {status : 500})
+        await connectDB();
+
+        const events = await Event.find().sort({ createdAt: -1 });
+
+        return NextResponse.json({ message: 'Events fetched successfully', events }, { status: 200 });
+    } catch (e) {
+        return NextResponse.json({ message: 'Event fetching failed', error: e }, { status: 500 });
     }
 }
-
-// this is a route that accepts a slug as input -> returns the event detauls 
