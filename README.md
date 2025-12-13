@@ -7,18 +7,18 @@ Inverge is a platform that lists multiple developer events. Users can view event
 
 ---
 
-## Why DevEvents?
+## Why Inverge?
 
-There are plenty of platforms like **Luma**, **Meetup**, and **Eventbrite**, but they’re general-purpose and not built specifically for developers. DevEvents exists to solve a real, practical problem: **fragmentation and discoverability** in developer communities.
+There are plenty of platforms like **Luma**, **Meetup**, and **Eventbrite**, but they’re general-purpose and not built specifically for developers. Inverge exists to solve a real, practical problem: **fragmentation and discoverability** in developer communities.
 
-1. **Developer-Focused:** DevEvents lists **only tech and developer-centric events**, so users aren’t wasting time on irrelevant events.  
+1. **Developer-Focused:** Inverge lists **only tech and developer-centric events**, so users aren’t wasting time on irrelevant events.  
 2. **Simplified Event Management:** Communities can **create and manage events easily** without complex dashboards or setups.  
-3. **Centralized Discovery:** Many innovative developer communities build their own platforms and events. Users often **miss these opportunities** because they don’t know these communities exist. DevEvents **aggregates these events in one place**, making it easy for developers to discover and join relevant events.  
+3. **Centralized Discovery:** Many innovative developer communities build their own platforms and events. Users often **miss these opportunities** because they don’t know these communities exist. Inverge **aggregates these events in one place**, making it easy for developers to discover and join relevant events.  
 4. **Email-Driven Registration:** Users can register **directly via email**, avoiding the friction of creating accounts on multiple platforms.  
 5. **Community Growth:** Communities get **more visibility and reach**, connecting with developers who otherwise wouldn’t find their events.  
 6. **Open Source & Extensible:** Fully **open-source**, allowing contributors to improve features, add integrations, or customize it for their own communities.
 
-> In short: DevEvents is **lightweight, developer-focused, and community-friendly**, solving fragmentation in event discovery while providing communities the reach they need and users the events they want.
+> In short: Inverge is **lightweight, developer-focused, and community-friendly**, solving fragmentation in event discovery while providing communities the reach they need and users the events they want.
 
 
 ## 🏆 Why This Project Fits the Captain Code Award
