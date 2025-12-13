@@ -1,36 +1,190 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DevEvents 🚀
 
-## Getting Started
+> **Hackathon Submission — Captain Code Award Track**
+> *Best Open-Source Engineering using CodeRabbit*
 
-First, run the development server:
+DevEvents is a **production-ready, open-source event listing platform** built with modern web technologies and **strong OSS engineering practices**. This project focuses on **clean pull requests, clear documentation, scalable architecture, and AI-assisted code reviews using CodeRabbit** — exactly aligned with the *Captain Code Award* track.
+
+---
+
+## 🏆 Why This Project Fits the Captain Code Award
+
+This project was intentionally engineered to demonstrate **real-world open-source discipline**, not just features.
+
+* ✅ **AI-powered PR reviews using CodeRabbit**
+* ✅ Clean, modular, and scalable codebase
+* ✅ Strong documentation-first approach
+* ✅ Consistent commit & PR conventions
+* ✅ Production-grade setup (Vercel-ready)
+* ✅ Clear contribution workflow for external contributors
+
+This is not a demo app. This is an **OSS-ready product**.
+
+---
+
+## 🔥 Core Features
+
+* 🏠 **Home Page** — Dynamic list of upcoming and featured events
+* 📄 **Event Details Page** — Full event info with registration support
+* 🔁 **API Routes** — Create, read, update, delete (CRUD) events
+* ☁️ **Cloudinary Integration** — Secure image upload & optimization
+* ⚡ **Next.js 16 Caching** — Faster loads using the latest caching model
+* 🧱 **Reusable Architecture** — Clean separation of concerns
+
+---
+
+## 🧠 Tech Stack
+
+| Technology        | Purpose                              |
+| ----------------- | ------------------------------------ |
+| **Next.js (v16)** | Full-stack React framework           |
+| **TypeScript**    | Type-safe, scalable development      |
+| **MongoDB**       | NoSQL database for event storage     |
+| **Mongoose**      | ODM for schema & validation          |
+| **Cloudinary**    | Media upload & optimization          |
+| **Tailwind CSS**  | Utility-first styling system         |
+| **CodeRabbit**    | AI-powered PR reviews & code quality |
+| **Warp**          | Modern terminal for dev productivity |
+
+---
+
+## 🧩 CodeRabbit in Action
+
+CodeRabbit plays a **central role** in this repository:
+
+* 🤖 Automated PR reviews
+* 🧹 Enforces clean code & best practices
+* 📏 Detects architectural issues early
+* 📝 Suggests improvements directly in PRs
+* 🔁 Encourages smaller, reviewable commits
+
+Every pull request is reviewed with **CodeRabbit before merge** — simulating a real OSS workflow.
+
+---
+
+## 🗂️ Project Structure
+
+```bash
+.
+├── app/                # Next.js App Router (routes, layouts, pages, API handlers)
+├── components/         # Reusable UI & feature components
+├── database/           # MongoDB connection & database helpers
+├── lib/                # Shared utilities,actions,constants
+├── public/             # Static assets
+├── .env                # Environment variables (gitignored)
+├── .gitignore
+├── components.json     # shadcn/ui configuration
+├── eslint.config.mjs   # ESLint configuration
+├── next-env.d.ts
+├── next.config.ts
+├── package.json
+├── package-lock.json
+├── postcss.config.mjs
+├── tailwind.config.ts
+├── tsconfig.json
+└── README.md
+
+```
+
+The architecture is intentionally **flat, readable, and contributor-friendly**.
+
+---
+
+## 🤝 Open Source Workflow
+
+This repository follows strict OSS practices:
+
+* 📌 Conventional commits
+* 🔀 Feature-based pull requests
+* 🧪 Manual & AI-assisted review process
+* 📄 Clear PR templates
+* 🚦 No direct pushes to `main`
+
+### PR Rules
+
+1. Small, focused PRs only
+2. One feature or fix per PR
+3. CodeRabbit review required
+4. Clear PR description & screenshots (if UI)
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+Ensure you have:
+
+* Git
+* Node.js (>=18)
+* npm
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/your-username/Inverge.git
+cd inverge
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+MONGODB_URI=
+
+NEXT_PUBLIC_BASE_URL=http://localhost:3000/
+
+CLOUDINARY_URL=
+```
+
+> ⚠️ Never commit `.env` files to the repository.
+
+---
+
+### Run Locally
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📦 Deployment
 
-## Learn More
+* ✅ Vercel-ready
+* ✅ Environment-based configuration
+* ✅ Optimized builds using Next.js caching
 
-To learn more about Next.js, take a look at the following resources:
+This project is designed for **zero-friction production deployment**.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📚 Documentation Philosophy
 
-## Deploy on Vercel
+This repository prioritizes **clarity over cleverness**:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* Self-explanatory folder structure
+* Minimal abstraction
+* Clear naming conventions
+* Comments only where necessary
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+If a new contributor can’t understand the code in 10 minutes — it’s considered a bug.
+
+---
+
+## 🏁 Final Note
+
+This project was built to **prove open-source maturity**, not just functionality.
+
+If you are evaluating **clean engineering, OSS workflows, and AI-assisted development using CodeRabbit** — this repository was designed exactly for that purpose.
+
+> *Ship clean. Review harder. Scale responsibly.* 🚀
