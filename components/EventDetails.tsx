@@ -1,10 +1,7 @@
 import React from 'react'
 import {notFound} from "next/navigation";
-import { IEvent } from '@/database/event.model';
-import {getSimilarEventsBySlug} from "@/lib/actions/event.actions";
 import Image from "next/image";
 import BookEvent from "@/components/BookEvent";
-import EventCard from "@/components/EventCard";
 import {cacheLife} from "next/cache";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -111,13 +108,6 @@ const EventDetails = async ({ params }: { params: Promise<string> }) => {
                 <aside className="booking">
                     <div className="signup-card">
                         <h2>Book Your Spot</h2>
-                        {bookings > 0 ? (
-                            <p className="text-sm">
-                                Join {bookings} people who have already booked their spot!
-                            </p>
-                        ): (
-                            <p className="text-sm">Be the first to book your spot!</p>
-                        )}
 
                         <BookEvent eventId={event._id} slug={event.slug} />
                     </div>
