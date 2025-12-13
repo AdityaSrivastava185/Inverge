@@ -1,9 +1,9 @@
-# DevEvents 🚀
+# Inverge 🚀
 
-> **Hackathon Submission — Captain Code Award Track**
+> **Hackathon Submission — Captain Code Award Track and Stormbreaker Deployment Award**
 > *Best Open-Source Engineering using CodeRabbit*
 
-DevEvents is a **production-ready, open-source event listing platform** built with modern web technologies and **strong OSS engineering practices**. This project focuses on **clean pull requests, clear documentation, scalable architecture, and AI-assisted code reviews using CodeRabbit** — exactly aligned with the *Captain Code Award* track.
+Inverge is a **production-ready, open-source event listing platform** built with modern web technologies and **strong OSS engineering practices**. This project focuses on **clean pull requests, clear documentation, scalable architecture, and AI-assisted code reviews using CodeRabbit**
 
 ---
 
