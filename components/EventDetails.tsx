@@ -1,8 +1,9 @@
 import React from 'react'
-import {notFound} from "next/navigation";
+import { notFound } from "next/navigation";
 import Image from "next/image";
 import BookEvent from "@/components/BookEvent";
-import {cacheLife} from "next/cache";
+import { cacheLife } from "next/cache";
+import Link from 'next/link';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -61,18 +62,33 @@ const EventDetails = async ({ params }: { params: Promise<string> }) => {
         return notFound();
     }
 
-    const { description, image, overview, date, time, location, mode, agenda, audience, tags, organizer } = event;
+    const {title ,  description, image, overview, date, time, location, mode, agenda, audience, tags, organizer, website } = event;
 
-    if(!description) return notFound();
-
-    const bookings = 10;
+    if (!description) return notFound();
 
     return (
         <section id="event">
             <div className="header">
-                <h1>Event Description</h1>
+                <h1>{title}</h1>
                 <p>{description}</p>
             </div>
+            {
+                website ? (
+                    <div>
+                {website && (
+                    <div className="flex-row-gap-2 items-center">
+                        <span className="font-semibold">Website :</span>
+                        <Link href={website} target="_blank" rel="noopener noreferrer" className="bg-primary text-background px-3 py-1.5 rounded-md hover:opacity-90 transition">
+                            Register Here
+                        </Link>
+                    </div>
+                )}
+            </div>
+                ):(
+                    <>
+                    </>
+                )
+            }
 
             <div className="details">
                 {/*    Left Side - Event Content */}
@@ -105,13 +121,19 @@ const EventDetails = async ({ params }: { params: Promise<string> }) => {
                 </div>
 
                 {/*    Right Side - Booking Form */}
-                <aside className="booking">
-                    <div className="signup-card">
-                        <h2>Book Your Spot</h2>
+                {
+                    website ? (
+                        <></>
+                    ) : (
+                        <aside className="booking">
+                            <div className="signup-card">
+                                <h2>Book Your Spot</h2>
 
-                        <BookEvent eventId={event._id} slug={event.slug} />
-                    </div>
-                </aside>
+                                <BookEvent eventId={event._id} slug={event.slug} />
+                            </div>
+                        </aside>
+                    )
+                }
             </div>
         </section>
     )

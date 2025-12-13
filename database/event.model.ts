@@ -16,6 +16,7 @@ export interface IEvent extends Document {
   agenda: string[];
   organizer: string;
   tags: string[];
+  website?: string;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -101,6 +102,18 @@ const EventSchema = new Schema<IEvent>(
       validate: {
         validator: (v: string[]) => v.length > 0,
         message: 'At least one tag is required',
+      },
+    },
+    website: {
+      type: String,
+      trim: true,
+      validate: {
+        validator: (v: string) => {
+          if (!v) return true; // Allow empty string
+          const urlRegex = /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/;
+          return urlRegex.test(v);
+        },
+        message: 'Website must be a valid URL',
       },
     },
   },
