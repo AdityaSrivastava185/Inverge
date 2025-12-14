@@ -32,8 +32,8 @@ Make sure you have:
 ### Setup
 
 ```bash
-git clone https://github.com/<your-username>/dev-events.git
-cd dev-events
+git clone https://github.com/<your-username>/inverge.git
+cd inverge
 npm install
 ```
 
