@@ -1,0 +1,19 @@
+{
+    
+  "editor.inlineSuggest.enabled": false,
+  "editor.acceptSuggestionOnCommitCharacter": false,
+
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": false
+  },
+
+  "editor.suggestOnTriggerCharacters": true,
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  }
+
+}

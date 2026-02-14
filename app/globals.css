@@ -130,6 +130,9 @@
     ul {
         @apply list-disc list-inside;
     }
+    .margin-bottom {
+        @apply mb-4
+    }
 }
 
 @layer components {

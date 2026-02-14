@@ -11,8 +11,8 @@ const Navbar = () => {
 
                 <ul>
                     <Link href="https://github.com/AdityaSrivastava185/Inverge">Github</Link>
-                    {/* <Link href="/">Events</Link>
-                    <Link href="/">Create Event</Link> */}
+                    <Link href="/">Events</Link>
+                    <Link href="/create-event">Create Event</Link>
                 </ul>
             </nav>
         </header>
