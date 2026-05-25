@@ -9,10 +9,10 @@ const Page = async () => {
 
   return (
     <section>
-      <h1 className="text-center">
+      <h1 className="text-center text-balance text-3xl">
         The Hub for Every Git Togther <br /> Event You Can&apos;t Miss
       </h1>
-      <p className="text-center mt-5">
+      <p className="text-center mt-5 text-balance">
         Hackathons, Meetups, and Conferences, All in One Place
       </p>
 
