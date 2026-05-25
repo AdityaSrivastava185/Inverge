@@ -3,14 +3,9 @@ import EventCard from "@/components/EventCard";
 import { IEvent } from "@/database/event.model";
 import { cacheLife } from "next/cache";
 import { Suspense } from "react";
-
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+import EventsList from "@/components/EventsList";
 
 const Page = async () => {
-  'use cache';
-  cacheLife('seconds')
-  const response = await fetch(`${BASE_URL}/api/events`);
-  const { events } = await response.json();
 
   return (
     <section>
@@ -25,20 +20,9 @@ const Page = async () => {
 
       <div className="mt-20 space-y-7">
         <h3>Featured Events</h3>
-        
-          <ul className="events">
-            {events && events.length > 0 ? (
-              events.map((event: IEvent) => (
-                <li key={event.title} className="list-none">
-                  <EventCard {...event} />
-                </li>
-              ))
-            ) : (
-              <li className="list-none">
-                <p className="text-light-200">No events listed for now</p>
-              </li>
-            )}
-          </ul>
+          <Suspense fallback={<p>Loading Events .... </p>}>
+            <EventsList/>
+          </Suspense>
       </div>
     </section>
   );
