@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css"
+// @ts-expect-error -- Next.js supports global CSS side-effect imports here
+import "./globals.css";
 import LightRays from "@/components/LightRays";
 import Navbar from "@/components/Navbar";
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -28,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased `}
       >
         <Navbar />
         <div className="absolute inset-0 top-0 z-[-1] min-h-screen">
