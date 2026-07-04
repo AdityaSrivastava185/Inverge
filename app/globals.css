@@ -12,8 +12,8 @@
     --color-dark-100: #0d161a;
     --color-dark-200: #182830;
     --radius: 0.625rem;
-    --background: #030708;
-    --foreground: #ffffff;
+    --background: #141414;
+    --foreground: #FAF9F5;
     --card: oklch(1 0 0);
     --card-foreground: oklch(0.145 0 0);
     --popover: oklch(1 0 0);
@@ -96,7 +96,7 @@
 }
 
 @utility text-gradient {
-    @apply to-blue bg-gradient-to-b from-white via-white bg-clip-text font-semibold text-transparent;
+    @apply text-foreground font-semibold;
 }
 
 @utility glass {
@@ -144,7 +144,7 @@
     }
 
     #explore-btn {
-        @apply border-dark-200 bg-dark-100 flex w-fit cursor-pointer  rounded-full border px-8 py-3.5 max-sm:w-full text-center;
+        @apply border-dark-200 bg-[#C96442] flex w-fit cursor-pointer  rounded-xl border px-3 py-3 max-sm:w-full text-center;
 
         a {
             @apply flex-center gap-2 text-center w-full;
@@ -183,11 +183,11 @@
         }
 
         .title {
-            @apply text-[20px] font-semibold line-clamp-1;
+            @apply text-[20px] text-foreground font-semibold line-clamp-1;
         }
 
         p {
-            @apply text-light-200 text-sm font-light;
+            @apply text-light-200  text-sm font-light;
         }
 
         .datetime {

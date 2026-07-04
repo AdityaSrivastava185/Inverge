@@ -29,11 +29,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased `}
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}
       >
         <Navbar />
         <div className="absolute inset-0 top-0 z-[-1] min-h-screen">
-          <LightRays
+          {/* <LightRays
             raysOrigin="top-center-offset"
             raysColor="#5dfeca"
             raysSpeed={0.5}
@@ -43,7 +43,7 @@ export default function RootLayout({
             mouseInfluence={0.02}
             noiseAmount={0.0}
             distortion={0.01}
-          />
+          /> */}
         </div>
         <main>
           {children}
