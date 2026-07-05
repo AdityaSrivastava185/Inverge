@@ -92,7 +92,7 @@ const EventDetails = async ({ params }: { params: Promise<string> }) => {
 
   return (
     <section>
-      <div className="flex gap-10 border-b border-[#30302E] pb-17">
+      <div className="flex flex-col md:flex-row gap-10 border-b border-[#30302E] pb-17">
         <div>
           <Image
             src={image}
@@ -116,7 +116,7 @@ const EventDetails = async ({ params }: { params: Promise<string> }) => {
           </div>
         </div>
       </div>
-      <div className="flex gap-10 py-17 justify-between">
+      <div className="flex flex-col md:flex-row gap-10 py-17 justify-between">
         <div className="max-w-xs w-full">
           <h1 className="text-4xl">{title}</h1>
         </div>
@@ -157,6 +157,7 @@ const EventDetails = async ({ params }: { params: Promise<string> }) => {
                       <h2 className="font-semibold text-4xl">
                         Checkout and Register
                       </h2>
+                      <p className="text-[#87867f]">Checkout their offical page and register to particiapte in the event, know more about the event</p>
                     </div>
                     <div>
                       <Link

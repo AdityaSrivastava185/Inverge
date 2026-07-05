@@ -6,23 +6,24 @@ import { Suspense } from "react";
 import EventsList from "@/components/EventsList";
 
 const Page = async () => {
-
   return (
     <section>
-      <h1 className="text-center text-balance text-3xl md:text-5xl">
-        The Hub for Every Git Togther <br /> Event You Can&apos;t Miss
+      <h1 className="text-center text-balance max-w-sm md:max-w-2xl mx-auto w-full text-3xl md:text-5xl">
+        Technical Space Where Developers Find Their Next Opportunity.
       </h1>
-      <p className="text-center mt-5 text-balance text-[#87867f]">
-        Hackathons, Meetups, and Conferences, All in One Place
+      <p className="text-center mt-5 md:max-w-xl text-balance mx-auto text-[#87867f]">
+        Explore hackathons, meetups, conferences, workshops, and community events - all curated for developers, indie-hackers, and technical builders
       </p>
 
-      <ExploreBtn />
+      <div className="max-w-xs md:max-w-xl w-full mx-auto ">
+        <ExploreBtn />
+      </div>
 
       <div className="mt-20 space-y-7">
         <h3>Featured Events</h3>
-          <Suspense fallback={<p>Loading Events .... </p>}>
-            <EventsList/>
-          </Suspense>
+        <Suspense fallback={<p>Loading Events .... </p>}>
+          <EventsList />
+        </Suspense>
       </div>
     </section>
   );
