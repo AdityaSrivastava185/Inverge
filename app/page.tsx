@@ -4,6 +4,7 @@ import { IEvent } from "@/database/event.model";
 import { cacheLife } from "next/cache";
 import { Suspense } from "react";
 import EventsList from "@/components/EventsList";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Page = async () => {
   return (
@@ -12,7 +13,9 @@ const Page = async () => {
         Technical Space Where Developers Find Their Next Opportunity.
       </h1>
       <p className="text-center mt-5 md:max-w-xl text-balance mx-auto text-[#87867f]">
-        Explore hackathons, meetups, conferences, workshops, and community events - all curated for developers, indie-hackers, and technical builders
+        Explore hackathons, meetups, conferences, workshops, and community
+        events - all curated for developers, indie-hackers, and technical
+        builders
       </p>
 
       <div className="max-w-xs md:max-w-xl w-full mx-auto ">
