@@ -132,14 +132,14 @@ EventSchema.pre('save', function (next) {
   }
 
   // Normalize date to ISO format if it's not already
-  // if (event.isModified('date')) {
-  //   event.date = normalizeDate(event.date);
-  // }
+  if (event.isModified('date')) {
+    event.date = normalizeDate(event.date);
+  }
 
   // Normalize time format (HH:MM)
-  // if (event.isModified('time')) {
-  //   event.time = normalizeTime(event.time);
-  // }
+  if (event.isModified('time')) {
+    event.time = normalizeTime(event.time);
+  }
 
   next();
 });

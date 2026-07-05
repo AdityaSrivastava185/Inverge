@@ -20,7 +20,6 @@ const Page = async () => {
       </div>
 
       <div className="mt-20 space-y-7">
-        <h3>Featured Events</h3>
         <Suspense fallback={<p>Loading Events .... </p>}>
           <EventsList />
         </Suspense>

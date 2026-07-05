@@ -9,23 +9,50 @@ const EventsList = async () => {
   });
 
   const { events } = await response.json();
+  const now = new Date();
+  const featuredEvents = events.filter(
+    (event: IEvent) => new Date(event.date) >= now,
+  );
+
+  const pastEvents = events.filter(
+    (event: IEvent) => new Date(event.date) < now,
+  );
 
   return (
-    <ul className="events">
-      {events && events.length > 0 ? (
-        events.map((event: IEvent) => (
-          <li key={event.title} className="list-none">
-            <EventCard {...event} />
-          </li>
-        ))
-      ) : (
-        <li className="list-none">
-          <p className="text-light-200">
-            No events listed for now
-          </p>
-        </li>
-      )}
-    </ul>
+    <>
+      <ul className="">
+        <h3 className="mb-7">Featured Events</h3>
+        <div className="events">
+          {featuredEvents.length > 0 ? (
+            featuredEvents.map((event: IEvent) => (
+              <li key={event.title} className="list-none">
+                <EventCard {...event} />
+              </li>
+            ))
+          ) : (
+            <li className="list-none">
+              <p className="text-light-200">No upcoming events listed.</p>
+            </li>
+          )}
+        </div>
+      </ul>
+      <ul>
+        <h3 className="mb-7">Past Events</h3>
+        <div className="events">
+          {pastEvents.length > 0 ? (
+            pastEvents.map((event: IEvent) => (
+              <li key={event.title} className="list-none">
+                <EventCard {...event} />
+              </li>
+            ))
+          ) : (
+            <li className="list-none">
+              <p className="text-light-200">No past events.</p>
+            </li>
+          )}
+        </div>
+      </ul>
+    </>
   );
 };
 
