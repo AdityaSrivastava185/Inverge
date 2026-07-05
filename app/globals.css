@@ -172,7 +172,7 @@
     }
 
     .events {
-        @apply grid md:grid-cols-3 gap-10 sm:grid-cols-2 grid-cols-1;
+        @apply grid xl:grid-cols-3 gap-10 md:grid-cols-2 grid-cols-1;
     }
 
     #event-card {
@@ -252,7 +252,7 @@
     }
 
     .pill {
-        @apply bg-dark-100 text-light-100 text-xs rounded-[6px] px-5 py-2;
+        @apply bg-[#30302E] text-light-100 text-xs rounded-[6px] px-5 py-2;
     }
 
     #book-event {

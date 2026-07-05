@@ -16,7 +16,7 @@ const EventDetailItem = ({
   alt: string;
   label: string;
 }) => (
-  <div className="flex-row-gap-2 items-center">
+  <div className="flex gap-2 items-center">
     <Image src={icon} alt={alt} width={17} height={17} />
     <p>{label}</p>
   </div>
@@ -24,7 +24,7 @@ const EventDetailItem = ({
 
 const EventAgenda = ({ agendaItems }: { agendaItems: string[] }) => (
   <div className="agenda">
-    <h2>Agenda</h2>
+    <h2 className="text-4xl font-semibold py-4">Agenda</h2>
     <ul>
       {agendaItems.map((item) => (
         <li key={item}>{item}</li>
@@ -91,31 +91,42 @@ const EventDetails = async ({ params }: { params: Promise<string> }) => {
   if (!description) return notFound();
 
   return (
-    <section id="event">
-      <div className="header">
-        <h1>{title}</h1>
-        <p>{description}</p>
-      </div>
-
-      <div className="details">
-        {/*    Left Side - Event Content */}
-        <div className="content">
+    <section>
+      <div className="flex gap-10 border-b border-[#30302E] pb-17">
+        <div>
           <Image
             src={image}
-            alt="Event Banner"
-            width={800}
+            className="object-contain rounded-xl"
             height={800}
-            className="banner object-contain"
+            width={800}
+            alt="event image"
           />
-
-          <section className="flex-col-gap-2">
-            <h2>Overview</h2>
+        </div>
+        <div className="max-w-7xl w-full">
+          <div className="header">
+            <h1>{title}</h1>
+          </div>
+          <div className="my-7">
+            <p className="text-xl font-semibold text-muted-foreground">
+              {location}
+            </p>
+          </div>
+          <div>
+            <p className="text-xl">{description}</p>
+          </div>
+        </div>
+      </div>
+      <div className="flex gap-10 py-17 justify-between">
+        <div className="max-w-xs w-full">
+          <h1 className="text-4xl">{title}</h1>
+        </div>
+        <section className="flex flex-col gap-17 max-w-[630px] w-full">
+          <div>
+            <h2 className="text-4xl font-semibold pb-4">Overview</h2>
             <p>{overview}</p>
-          </section>
-
-          <section className="flex-col-gap-2">
-            <h2>Event Details</h2>
-
+          </div>
+          <div className="flex flex-col gap-4">
+            <h2 className="text-4xl font-semibold">Event Details</h2>
             <EventDetailItem
               icon="/icons/calendar.svg"
               alt="calendar"
@@ -129,45 +140,48 @@ const EventDetails = async ({ params }: { params: Promise<string> }) => {
               alt="audience"
               label={audience}
             />
-          </section>
+            <EventAgenda agendaItems={agenda} />
+            <section className="flex-col-gap-2">
+              <h2 className="text-4xl font-semibold py-4">
+                About the Organizer
+              </h2>
+              <p>{organizer}</p>
+            </section>
 
-          <EventAgenda agendaItems={agenda} />
+            <EventTags tags={tags} />
+            <div className="py-4">
+              {website ? (
+                <>
+                  <section className="booking">
+                    <div className="mb-7">
+                      <h2 className="font-semibold text-4xl">
+                        Checkout and Register
+                      </h2>
+                    </div>
+                    <div>
+                      <Link
+                        href={website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-background p-3 rounded-md hover:opacity-90 transition bg-foreground"
+                      >
+                        Register Here
+                      </Link>
+                    </div>
+                  </section>
+                </>
+              ) : (
+                <aside className="booking">
+                  <div className="signup-card">
+                    <h2>Book Your Spot</h2>
 
-          <section className="flex-col-gap-2">
-            <h2>About the Organizer</h2>
-            <p>{organizer}</p>
-          </section>
-
-          <EventTags tags={tags} />
-        </div>
-
-        {/*    Right Side - Booking Form */}
-        {website ? (
-          <>
-            <aside className="booking">
-              <div className="signup-card">
-                <h2>Register here - </h2>
-
-                <Link
-                  href={website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-primary text-background px-3 py-1.5 rounded-md hover:opacity-90 transition"
-                >
-                  Register Here
-                </Link>
-              </div>
-            </aside>
-          </>
-        ) : (
-          <aside className="booking">
-            <div className="signup-card">
-              <h2>Book Your Spot</h2>
-
-              <BookEvent eventId={event._id} slug={event.slug} />
+                    <BookEvent eventId={event._id} slug={event.slug} />
+                  </div>
+                </aside>
+              )}
             </div>
-          </aside>
-        )}
+          </div>
+        </section>
       </div>
     </section>
   );
