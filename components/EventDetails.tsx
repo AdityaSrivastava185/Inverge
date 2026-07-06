@@ -24,7 +24,7 @@ const EventDetailItem = ({
 
 const EventAgenda = ({ agendaItems }: { agendaItems: string[] }) => (
   <div className="agenda">
-    <h2 className="text-4xl font-semibold py-4">Agenda</h2>
+    <h2 className="text-2xl md:text-4xl font-semibold py-3 md:py-4">Agenda</h2>
     <ul>
       {agendaItems.map((item) => (
         <li key={item}>{item}</li>
@@ -92,7 +92,7 @@ const EventDetails = async ({ params }: { params: Promise<string> }) => {
 
   return (
     <section>
-      <div className="flex flex-col md:flex-row gap-10 border-b border-[#30302E] pb-17">
+      <div className="flex flex-col md:flex-row gap-10 border-b border-[#30302E] md:pb-17 py-7">
         <div>
           <Image
             src={image}
@@ -103,10 +103,10 @@ const EventDetails = async ({ params }: { params: Promise<string> }) => {
           />
         </div>
         <div className="max-w-7xl w-full">
-          <div className="header">
-            <h1>{title}</h1>
+          <div className="md:header">
+            <h1 className="text-3xl max-w-[250px] md:text-5xl md:max-w-7xl w-full">{title}</h1>
           </div>
-          <div className="my-7">
+          <div className="md:my-7 my-4">
             <p className="text-xl font-semibold text-muted-foreground">
               {location}
             </p>
@@ -116,17 +116,17 @@ const EventDetails = async ({ params }: { params: Promise<string> }) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row gap-10 py-17 justify-between">
+      <div className="flex flex-col md:flex-row gap-7 md:gap-10 md:py-17 justify-between">
         <div className="max-w-xs w-full">
-          <h1 className="text-4xl">{title}</h1>
+          <h1 className="text-2xl max-w-[200px] md:max-w-xs md:text-4xl mt-7 md:mt-0">{title}</h1>
         </div>
-        <section className="flex flex-col gap-17 max-w-[630px] w-full">
+        <section className="flex flex-col gap-7 md:gap-17 max-w-[630px] w-full">
           <div>
-            <h2 className="text-4xl font-semibold pb-4">Overview</h2>
+            <h2 className="text-2xl md:text-4xl font-semibold pb-4">Overview</h2>
             <p>{overview}</p>
           </div>
-          <div className="flex flex-col gap-4">
-            <h2 className="text-4xl font-semibold">Event Details</h2>
+          <div className="flex flex-col gap-3 md:gap-4">
+            <h2 className=" text-2xl md:text-4xl font-semibold">Event Details</h2>
             <EventDetailItem
               icon="/icons/calendar.svg"
               alt="calendar"
@@ -142,19 +142,19 @@ const EventDetails = async ({ params }: { params: Promise<string> }) => {
             />
             <EventAgenda agendaItems={agenda} />
             <section className="flex-col-gap-2">
-              <h2 className="text-4xl font-semibold py-4">
+              <h2 className=" text-2xl md:text-4xl font-semibold py-3 md:py-4">
                 About the Organizer
               </h2>
               <p>{organizer}</p>
             </section>
 
             <EventTags tags={tags} />
-            <div className="py-4">
+            <div className="py-3 md:py-4">
               {website ? (
                 <>
                   <section className="booking">
                     <div className="mb-7">
-                      <h2 className="font-semibold text-4xl">
+                      <h2 className="font-semibold text-2xl md:text-4xl">
                         Checkout and Register
                       </h2>
                       <p className="text-[#87867f]">Checkout their offical page and register to particiapte in the event, know more about the event</p>
