@@ -6,6 +6,16 @@ import Event from "@/database/event.model";
 
 export async function POST(req: NextRequest) {
   try {
+     const adminKey = req.headers.get("x-admin-key");
+
+    if (adminKey !== process.env.ADMIN_SECRET) {
+      return NextResponse.json(
+        { message: "Unauthorized" },
+        { status: 401 }
+      );
+      
+    }
+
     await connectDB();
 
     const formData = await req.formData();
