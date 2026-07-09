@@ -66,7 +66,7 @@ const page = () => {
         formData.set('tags', JSON.stringify(parseListInput(tagsInput)))
 
         try {
-            const response = await fetch('/api/events', {
+            const response = await fetch(process.env.EVENT_CREATION_URL as string, {
                 method: 'POST',
                 body: formData,
             })
